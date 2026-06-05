@@ -4,17 +4,27 @@ export function Home({ setPage }: { setPage: (p: string) => void }) {
   return (
     <div className="w-full flex flex-col max-w-[1440px]">
       {/* Hero */}
-      <header className="w-full px-4 md:px-16 py-20 md:py-32 flex flex-col md:flex-row items-center gap-10 md:gap-8">
-        <div className="flex-1 flex flex-col items-start w-full relative z-10">
-          <h1 className="text-5xl md:text-7xl lg:text-[80px] font-display font-black uppercase text-on-surface tracking-tighter leading-none relative">
-            <span className="block bg-secondary-fixed text-on-secondary-fixed px-4 py-2 neo-border w-max shadow-[8px_8px_0px_0px_#1a1c1c] mb-6 transform -rotate-3 hover:rotate-0 transition-transform cursor-default">
+      {/* Added overflow-x-hidden to prevent horizontal scrolling */}
+      <header className="w-full px-4 md:px-16 py-16 md:py-32 flex flex-col md:flex-row items-center gap-10 md:gap-8 overflow-x-hidden">
+        <div className="flex-1 flex flex-col items-start w-full relative z-10 max-w-full">
+          
+          {/* Changed base mobile text from text-5xl to text-4xl. 
+              Added 'flex flex-col items-start' to force stacking. */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[80px] font-display font-black uppercase text-on-surface tracking-tighter leading-none relative w-full flex flex-col items-start">
+            
+            {/* Reduced horizontal padding on mobile to px-3.
+                Added max-w-[85vw] on mobile to prevent stretching past screen edges.
+                Added break-words and whitespace-normal. */}
+            <span className="bg-secondary-fixed text-on-secondary-fixed px-3 sm:px-4 py-2 neo-border max-w-[85vw] md:max-w-max shadow-[4px_4px_0px_0px_#1a1c1c] md:shadow-[8px_8px_0px_0px_#1a1c1c] mb-6 transform -rotate-3 hover:rotate-0 transition-transform cursor-default whitespace-normal break-words">
               THE NEO-CRUNCH
             </span>
-            REVOLUTION
+            <span>REVOLUTION</span>
           </h1>
+          
           <p className="text-xl font-body font-medium text-on-surface-variant max-w-md mt-6 border-l-4 border-primary pl-4">
             Unapologetic snacks for the fearless. Plug into the new aesthetic. No minimalists allowed.
           </p>
+          
           <div className="mt-10 flex flex-wrap gap-4">
             <button onClick={() => setPage('shop')} className="bg-primary text-on-primary font-display font-bold text-lg neo-border px-8 py-4 shadow-[8px_8px_0px_0px_#1a1c1c] hover:bg-secondary-fixed hover:text-on-secondary-fixed active:translate-x-2 active:translate-y-2 active:shadow-none transition-all uppercase flex items-center gap-2 group">
               Shop Collection
@@ -22,6 +32,7 @@ export function Home({ setPage }: { setPage: (p: string) => void }) {
             </button>
           </div>
         </div>
+        
         <div className="flex-1 w-full relative mt-12 md:mt-0">
           <div className="aspect-[4/5] md:aspect-square bg-surface-variant neo-border shadow-[16px_16px_0px_0px_#7b00c9] relative overflow-hidden group cursor-pointer" onClick={() => setPage('product')}>
             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcL4FHaYhQz32BrFBAODank9bpJRQ-47ICiUsTpXYQQevddE0fZ0ZjpZVtgp5Q1Tls7u_8JFNFiOTzQBWFB6ZIN9N--DmhYFG6hDunOqaZj8mBTJvxFjxhgs9alDcp5pbSPt-baXQNG-b94SOqRK2AjCz5UJD64BghompG9IDuONNGQ1aWUBmNpmDMBjC2MI_AZPPseimIoV51SPnSfuxIBclPCkEQP7QhhC6zucuuAbBhkhoeOsKUGDctCZa1a3-ifOXU0Wzxn0" alt="Mix" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700" />
